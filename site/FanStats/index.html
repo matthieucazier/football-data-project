@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FanStats</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #2c3e50; }
+        pre { text-align: left; display: inline-block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Bienvenue sur FanStats</h1>
+    <p>Les statistiques de vos jeux arrivent bientôt !</p>
+
+    <div id="data">
+        <pre id="json-data">Chargement des données...</pre>
+    </div>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('data/stats.json');
+                const data = await response.json();
+                document.getElementById('json-data').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('json-data').textContent = "Impossible de charger les données.";
+            }
+        }
+        fetchData();
+    </script>
+</body>
+</html>

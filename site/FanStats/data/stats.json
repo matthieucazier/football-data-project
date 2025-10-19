@@ -1,0 +1,7 @@
+{
+  "games": [
+    {"team": "PSG", "score": 3},
+    {"team": "Lyon", "score": 2},
+    {"team": "Marseille", "score": 1}
+  ]
+}

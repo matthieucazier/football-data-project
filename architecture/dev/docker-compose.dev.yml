@@ -1,1 +1,25 @@
- 
+services:
+  airflow:
+    image: apache/airflow:2.8.2
+    container_name: airflow-dev
+    restart: always
+    env_file: .env.dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./airflow-db:/opt/airflow
+      - ../../orchestrator/game_ligue_1:/opt/airflow/dags/game_ligue_1
+      - ../../etl:/opt/airflow/etl     
+    command: webserver
+
+  fanstats:
+    build: ../../site/FanStats
+    container_name: fanstats
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../site/FanStats/data:/app/data 
+    restart: unless-stopped
