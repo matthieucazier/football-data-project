@@ -9,28 +9,29 @@ The main goals are:
 - **Data visualization:** A lightweight web app (FanStats) displays the collected stats in real time.
 - **Extensible design:** Easily add new leagues, DAGs, or additional stats.
 
----
 
 ## Project Structure
-architecture/
-├─ dev/ # Development environment
-│ ├─ airflow-db/ # Airflow database and logs (ignored in Git)
-│ ├─ dags/ # Airflow DAGs
-│ ├─ etl/ # ETL scripts for each league
-│ ├─ orchestrator/ # Airflow DAG orchestrator scripts
-│ ├─ plugins/ # Airflow plugins
-│ ├─ logs/ # Airflow runtime logs (ignored in Git)
-│ ├─ .env.dev # Development environment variables
-│ └─ docker-compose.dev.yml
-site/
-├─ FanStats/ # Web app to display stats
-│ ├─ Dockerfile
-│ ├─ index.html
-│ ├─ run_server.py
-│ └─ data/ # Shared JSON data for the web app
+<pre>
+C:.
+| docker.txt
+| REDME.md
+| requirements.txt
+|
++---.github
++---architecture
+| +---dev
+| | | .env.dev
+| | | docker-compose.dev.yml
+| | ...
+---site
+---FanStats
+| dockerfile
+| index.html
+| run_server.py
+---data
+stats.json
+</pre>
 
-
----
 
 ## How to Run
 
